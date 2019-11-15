@@ -1,9 +1,6 @@
 name: CI
 
-on:
-  push:
-    paths-ignore:
-    - README.md
+on: [push]
 
 jobs:
   build:
@@ -11,4 +8,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Good to go
+      if: hashFiles('README.md')
       run: echo OK
+    - name: I am documentation
+      if: ! hashFiles('README.md')
+      run: echo README
