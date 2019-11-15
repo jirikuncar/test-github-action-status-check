@@ -8,8 +8,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Good to go
-      if: hashFile('README.md')
+      if: hashFiles('README.md')
       run: echo OK
     - name: I am documentation
-      if: hashFiles('README.md') == false
+      if: ! hashFiles('README.md')
       run: echo README
