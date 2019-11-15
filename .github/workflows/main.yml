@@ -11,5 +11,5 @@ jobs:
       if: hashFiles('README.md')
       run: echo OK
     - name: I am documentation
-      if: ! hashFiles('README.md')
+      if: hashFiles('README.md') == false
       run: echo README
